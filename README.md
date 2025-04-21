@@ -33,7 +33,7 @@ Steps
 Clone the repository:
 
 bash
-git clone https://github.com/yourusername/unit-converter.git
+git clone https://github.com/Ssajaia/unit-converter.git
 cd unit-converter
 Run the application:
 
