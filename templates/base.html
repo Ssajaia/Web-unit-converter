@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unit Converter - {{.Title}}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Unit Converter</h1>
+        <nav>
+            <a href="/length" class="{{if eq .Active "length"}}active{{end}}">Length</a>
+            <a href="/weight" class="{{if eq .Active "weight"}}active{{end}}">Weight</a>
+            <a href="/temperature" class="{{if eq .Active "temperature"}}active{{end}}">Temperature</a>
+        </nav>
+        
+        <!-- This is where child templates inject content -->
+        {{template "content" .}}
+    </div>
+</body>
+</html>

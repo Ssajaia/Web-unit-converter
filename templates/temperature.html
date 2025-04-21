@@ -1,0 +1,37 @@
+{{define "content"}}
+    <h2>Temperature Converter</h2>
+    
+    <form method="POST" action="/temperature">
+        <div class="form-group">
+            <label for="value">Value:</label>
+            <input type="number" step="any" id="value" name="value" value="{{.Value}}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="from">From:</label>
+            <select id="from" name="from">
+                <option value="C" {{if eq .From "C"}}selected{{end}}>Celsius (°C)</option>
+                <option value="F" {{if eq .From "F"}}selected{{end}}>Fahrenheit (°F)</option>
+                <option value="K" {{if eq .From "K"}}selected{{end}}>Kelvin (K)</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="to">To:</label>
+            <select id="to" name="to">
+                <option value="C" {{if eq .To "C"}}selected{{end}}>Celsius (°C)</option>
+                <option value="F" {{if eq .To "F"}}selected{{end}}>Fahrenheit (°F)</option>
+                <option value="K" {{if eq .To "K"}}selected{{end}}>Kelvin (K)</option>
+            </select>
+        </div>
+        
+        <button type="submit">Convert</button>
+    </form>
+    
+    {{if .Result}}
+    <div class="result">
+        <h3>Result:</h3>
+        <p>{{.Value}} {{.From}} = {{.Result}} {{.To}}</p>
+    </div>
+    {{end}}
+{{end}}

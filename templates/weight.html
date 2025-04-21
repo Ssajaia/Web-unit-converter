@@ -1,0 +1,41 @@
+{{define "content"}}
+    <h2>Weight Converter</h2>
+    
+    <form method="POST" action="/weight">
+        <div class="form-group">
+            <label for="value">Value:</label>
+            <input type="number" step="any" id="value" name="value" value="{{.Value}}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="from">From:</label>
+            <select id="from" name="from">
+                <option value="mg" {{if eq .From "mg"}}selected{{end}}>Milligram (mg)</option>
+                <option value="g" {{if eq .From "g"}}selected{{end}}>Gram (g)</option>
+                <option value="kg" {{if eq .From "kg"}}selected{{end}}>Kilogram (kg)</option>
+                <option value="oz" {{if eq .From "oz"}}selected{{end}}>Ounce (oz)</option>
+                <option value="lb" {{if eq .From "lb"}}selected{{end}}>Pound (lb)</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="to">To:</label>
+            <select id="to" name="to">
+                <option value="mg" {{if eq .To "mg"}}selected{{end}}>Milligram (mg)</option>
+                <option value="g" {{if eq .To "g"}}selected{{end}}>Gram (g)</option>
+                <option value="kg" {{if eq .To "kg"}}selected{{end}}>Kilogram (kg)</option>
+                <option value="oz" {{if eq .To "oz"}}selected{{end}}>Ounce (oz)</option>
+                <option value="lb" {{if eq .To "lb"}}selected{{end}}>Pound (lb)</option>
+            </select>
+        </div>
+        
+        <button type="submit">Convert</button>
+    </form>
+    
+    {{if .Result}}
+    <div class="result">
+        <h3>Result:</h3>
+        <p>{{.Value}} {{.From}} = {{.Result}} {{.To}}</p>
+    </div>
+    {{end}}
+{{end}}
